@@ -2,18 +2,24 @@
 #include <TXLib.h>
 #include <math.h>
 
-const int INF_ROOTS = -1;
+const int INF_ROOTS = -1; // константа для определения бесконченого кол-ва корней
+const double EPSILON = 0.000001; //константа для погрещности в сравнении double и нуля
 
-int solver(double a, double b, double c, double* x1, double* x2)
+int is_null(double n)
     {
-        if (a == 0)
+        return (abs(n) < EPSILON);
+    }
+
+int solver(double a, double b, double c, double* x1, double* x2) // решает квадратное уравнение
+    {
+        if (is_null(a))
         {
-            if (b == 0)
+            if (is_null(b))
             {
-                if (c == 0)
-                    return INF_ROOTS;
+                if (is_null(c))
+                    return INF_ROOTS; // бесконечное кол-во корней
                 else
-                    return 0;
+                    return 0; // нет корней
             }
             else
                 *x1 = *x2 = -c/b;
@@ -63,6 +69,10 @@ int main(void)
 
         return 0;
     }
+
+
+
+
 
 
 
