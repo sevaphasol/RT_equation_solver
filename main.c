@@ -3,7 +3,8 @@
 #include <math.h>
 #include <stdlib.h>
 
-const int INF_ROOTS = -1; // константа для определения бесконченого кол-ва корней
+enum number_of_roots {ZERO, ONE, TWO, INF};
+
 const double EPSILON = 0.000001; //константа для погрешности в сравнении double и нуля
 
 int is_null(double n);
@@ -37,44 +38,45 @@ int solver(double a, double b, double c, double* x1, double* x2) // решает квадр
         if (is_null(b))
         {
             if (is_null(c))
-                return INF_ROOTS; // бесконечное кол-во корней
+                return INF; // бесконечное кол-во корней
             else
-                return 0; // нет корней
+                return ZERO; // нет корней
         }
         else
             *x1 = *x2 = -c/b;
-            return 1;
+            return ONE;
     }
     else
     {
         double d = b*b - 4*a*c;
-        if (d < 0)
-            return 0;
-        else if (is_null(d))
+
+        if (is_null(d))
             {
             *x1 = *x2 = -b/(2*a);
-            return 1;
+            return ONE;
             }
+        else if (d < 0)
+            return ZERO;
         else if (d > 0)
             {
             *x1 = (-b + sqrt(b*b - 4*a*c))/(2*a);
             *x2 = (-b - sqrt(b*b - 4*a*c))/(2*a);
-            return 2;
+            return TWO;
             }
     }
-    return 1;
+    return -1;
 }
 
 void output(const int nRoots, const double x1, const double x2)
 {
     switch (nRoots){
-        case 0: printf("Корней нет \n");
+        case ZERO: printf("Корней нет \n");
                 break;
-        case 1: printf("%lf \n", x1);
+        case ONE: printf("%lf \n", x1);
                 break;
-        case 2: printf("%lf %lf \n", x1, x2);
+        case TWO: printf("%lf %lf \n", x1, x2);
                 break;
-        case INF_ROOTS: printf("Любое число \n");
+        case INF: printf("Любое число \n");
                         break;
         default: fprintf(stderr, "Где-то ошибка \n");
     }
@@ -103,10 +105,6 @@ void clear_std_out()
 
 
 // enum
-// 93 строчка fprintf
-// 82 строчка void const обьявить переменные
-// lg -> lf
 // структуры
 // assert
-// input функция
 
