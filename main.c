@@ -2,10 +2,21 @@
 #include <TXLib.h>
 #include <math.h>
 #include <stdlib.h>
+#include <string.h>
 
 
+//---------
+//! @param [in] coeffs
+//! @param [our] roots
+//!
+//!
+//!
+//---------
+// !!!! bbb_aaaa_ssss (snake)
+// !!!! bbbAaaaSsss (Camel)
+// !!!! BbbAaaaSsss (Pascal)
 
-enum number_of_Roots
+enum NumberOfRoots
 {
     NOT_INITIALIZED = -2,
     INF = -1,
@@ -14,46 +25,77 @@ enum number_of_Roots
     TWO = 2
 };
 
+/*
+enum Flags
+{
+    HELP = '--help',
+};
+*/
+
 
 const double EPSILON = 0.000001; /* for double_compare */
 
 typedef struct Coefficients { double a; double b; double c; } Coefficients;
 
-typedef struct Roots { int amount_of_roots; double x1; double x2; } Roots;
+typedef struct Roots { NumberOfRoots amount_of_roots; double x1; double x2; } Roots;
 
-void solver(Coefficients coeffs, Roots* roots);
-void output(const Roots roots);
-void input(Coefficients* coeffs);
+typedef struct TestQuad { int number_of_test; Coefficients coeffs; Roots right_roots; } TestQuad;
+
+void quad_solver(const Coefficients coeffs, Roots* const roots);
+void roots_output(const Roots roots);
+void coeffs_input(Coefficients* const coeffs);
+void coeffs_cmd_input(int argc, char * argv[], Coefficients* const coeffs);
+void flags_input(int argc, char * argv[], bool *only_test, bool *do_test);
+void flag_help();
+void flag_only_test(bool *only_test);
+void flag_do_test(bool *do_test);
 void clear_std_out();
-int double_compare(double x, double y);
-int solver_test(int num, Coefficients coeffs, Roots right_roots);
-int testing();
+int double_compare(const double x, const double y);
+int quad_solver_test(const TestQuad test);
+bool is_quad_solved_incorrectly(const Roots roots, const Roots right_roots);
+bool quad_solver_testing();
 
 
-int main()
+int main(int argc, char * argv[])
 {
-    Coefficients coeffs;
-    Roots roots;
+    Coefficients coeffs = {0, 0, 0};
+    Roots roots = {NOT_INITIALIZED, 0, 0};
+    bool only_test = false;
+    bool do_test = false;
 
-    input(&coeffs);
+    flags_input(argc, argv, &only_test, &do_test);
 
-    solver(coeffs, &roots);
+    if (!only_test)
+    {
+        /* coeffs_cmd_input(argc, argv, &coeffs); */
 
-    output(roots);
+        coeffs_input(&coeffs);
 
-    testing();
+        quad_solver(coeffs, &roots);
+
+        roots_output(roots);
+    }
+
+    if (do_test)
+    {
+        if (quad_solver_testing())
+            printf("Тестирование успешно\n");
+        else
+            printf("Тестирование провалено\n");
+    }
+
 
     return EXIT_SUCCESS;
 }
 
-int double_compare(double x, double y)
+int double_compare(const double x, const double y)
 {
     assert (isfinite(x));
     assert (isfinite(y));
     return (fabs(x - y) < EPSILON);
 }
 
-void solver(Coefficients coeffs, Roots* roots)
+void quad_solver(const Coefficients coeffs, Roots* const roots)
 {
     assert (isfinite(coeffs.a));
     assert (isfinite(coeffs.b));
@@ -92,14 +134,14 @@ void solver(Coefficients coeffs, Roots* roots)
             roots->amount_of_roots = ZERO;
         else if (d > 0)
         {
-            roots->x1 = (-coeffs.b + sqrt(coeffs.b*coeffs.b - 4*coeffs.a*coeffs.c))/(2*coeffs.a);
-            roots->x2 = (-coeffs.b - sqrt(coeffs.b*coeffs.b - 4*coeffs.a*coeffs.c))/(2*coeffs.a);
+            roots->x1 = (-coeffs.b + sqrt(d))/(2*coeffs.a);
+            roots->x2 = (-coeffs.b - sqrt(d))/(2*coeffs.a);
             roots->amount_of_roots = TWO;
         }
     }
 }
 
-void output(const Roots roots)
+void roots_output(const Roots roots)
 {
     switch (roots.amount_of_roots){
         case ZERO: printf("Корней нет \n");
@@ -110,12 +152,14 @@ void output(const Roots roots)
                 break;
         case INF: printf("Любое число \n");
                 break;
+        case NOT_INITIALIZED:
         default: fprintf(stderr, "Где-то ошибка \n");
     }
 }
 
-void input(Coefficients* coeffs)
+void coeffs_input(Coefficients* const coeffs)
 {
+    assert(coeffs != NULL);
     while (true)
     {
         printf("Введите коэффициенты a, b, c: \n");
@@ -127,6 +171,56 @@ void input(Coefficients* coeffs)
     }
 }
 
+/*
+void coeffs_cmd_input(int argc, char * argv[], Coefficients* const coeffs)
+{
+    printf("Количество аргументов, указанных в командной строке: %d\n", argc - 1);
+    for (int count = 1; count < argc; count++)
+        printf("%d: %s\n", count, argv[count]);
+    printf("\n");
+    //coeffs->a = argv[1];
+    //coeffs->b = (double)argv[2];
+    //coeffs->c = (double)argv[3];
+}
+*/
+
+void flags_input(int argc, char * argv[], bool *only_test, bool *do_test)
+{
+    for (int count = 1; count < argc; count++)
+    {
+        if (!strcmp(argv[count], "--help"))
+        {
+            flag_help();
+        }
+        else if (!strcmp(argv[count], "--only_test"))
+        {
+            flag_only_test(only_test);
+        }
+        else if (!strcmp(argv[count], "--do_test"))
+        {
+            flag_do_test(do_test);
+        }
+    }
+
+}
+
+void flag_help()
+{
+    printf("Help information \n"
+           "--help        show this information\n"
+           "--only_test   no solving equation, just test\n");
+}
+
+void flag_only_test(bool *only_test)
+{
+    *only_test = true;
+}
+
+void flag_do_test(bool *do_test)
+{
+    *do_test = true;
+}
+
 void clear_std_out()
 {
     int symbol = getchar();
@@ -135,42 +229,52 @@ void clear_std_out()
     }
 }
 
-int solver_test(int num, Coefficients coeffs, Roots right_roots)
+int quad_solver_test(const TestQuad test)
 {
     Roots roots = {NOT_INITIALIZED, 0, 0};
-    solver(coeffs, &roots);
-    if (!((double_compare(roots.x1, right_roots.x1) && double_compare(roots.x2, right_roots.x2))
-       || (double_compare(roots.x1, right_roots.x2) && double_compare(roots.x2, right_roots.x1)))
-       || roots.amount_of_roots != right_roots.amount_of_roots)
+    quad_solver(test.coeffs, &roots);
+    if (is_quad_solved_incorrectly(roots, test.right_roots))
     {
         printf("Error\n"
                "Тест %d\n"
                "Уравнение c коэффициентами %lf, %lf, %lf имеет %d корней, эти корни: %lf %lf\n"
                "Количество получаемых программой корней: %d. Корни получаемые программой: %lf и %lf\n",
-                num, coeffs.a, coeffs.b, coeffs.c, right_roots.amount_of_roots, right_roots.x1, right_roots.x2,
+                test.number_of_test, test.coeffs.a, test.coeffs.b, test.coeffs.c, test.right_roots.amount_of_roots, test.right_roots.x1, test.right_roots.x2,
                 roots.amount_of_roots, roots.x1, roots.x2);
-        return 1;
+        return -1;
     }
     return 0;
 }
 
-int testing()
+bool is_quad_solved_incorrectly(const Roots roots, const Roots right_roots)
+{
+    return !((double_compare(roots.x1, right_roots.x1) && double_compare(roots.x2, right_roots.x2))
+       || (double_compare(roots.x1, right_roots.x2) && double_compare(roots.x2, right_roots.x1)))
+       || roots.amount_of_roots != right_roots.amount_of_roots;
+}
+
+bool quad_solver_testing()
 {
     int failed = 0;
-    failed += solver_test(1, {1, 2, -3}, {2, 1, -3});
-    failed += solver_test(2, {0, 0, 0}, {INF, 0, 0});
-    failed += solver_test(3, {0, 0, 1}, {ZERO, 0, 0});
-    failed += solver_test(4, {0.0000001, 1, -1}, {1, 1, 1});
-    failed += solver_test(5, {10.101, -2043.997956, 98390.5925184}, {2, 123.456, 78.9});
+    TestQuad test1 = {1, {1, 2, -3}, {TWO, 1, -3}};
+    TestQuad test2 = {2, {0, 0, 0}, {INF, 0, 0}};
+    TestQuad test3 = {3, {0, 0, 1}, {ZERO, 0, 0}};
+    TestQuad test4 = {4, {0.0000001, 1, -1}, {ONE, 1, 1}};
+    TestQuad test5 = {5, {10.101, -2043.997956, 98390.5925184}, {TWO, 123.456, 78.9}};
+
+    failed += quad_solver_test(test1);
+    failed += quad_solver_test(test2);
+    failed += quad_solver_test(test3);
+    failed += quad_solver_test(test4);
+    failed += quad_solver_test(test5);
     if (!failed)
     {
-        printf("Тестирование успешно");
-        return 0;
+        return true;
     }
-    return 1;
+    return false;
 }
 
 
 
 
-
+// test bool возвращать
