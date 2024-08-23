@@ -15,17 +15,26 @@
 /// Number of quad equation roots
 enum NumberOfRoots
 {
-    NOT_INITIALIZED = -2, //equation hasn't been made
+    NOT_INITIALIZED = -2, ///< equation hasn't been made
     INF = -1, //equation has infinte roots
     ZERO = 0, // equation has 0 roots
     ONE = 1, // equation has 1 root
     TWO = 2, // equation has 2 roots
 };
 
+/// Color of output text in console
+enum Colors
+{
+	RED,
+	GREEN,
+	TURQUOISE,
+	PURPLE,
+};
+
 /// Accuracy of double comparison
 const double EPSILON = 0.000001; 
 
-/// Structure for coeffitients of quad equation
+/// Structure for coefficients of quad equation
 typedef struct Coefficients {
 	double a; ///< 1st coeffitient a*x^2
 	double b; ///< 2nd coeffitient b*x
@@ -42,78 +51,105 @@ typedef struct Roots {
 /// Structure for testing programm
 typedef struct TestQuad { 
 	int number_of_test; ///< number of test 
-	Coefficients coeffs; /// coeffitients of equation
+	Coefficients coeffs; /// coefficients of equation
 	Roots right_roots; /// right roots of equation 
 } TestQuad;
 
 /*!
-Solves quad equation
+\brief Solves quad equation
 \param[out] roots quad equation roots
-\param[in] coeffs quad equation coeffititens
+\param[in] coeffs quad equation coefficients
+\return nothing
 */
 void quad_solver(const Coefficients coeffs, Roots* const roots);
 
 /*!
-Displays quad equation roots
+\brief Displays quad equation roots
 \param[in] roots quad equation roots
+\return nothing
 */
 void roots_output(const Roots roots);
+
 /*!
-Receives quad equation coeffitients 
+\brief Receives quad equation coefficients 
 \param[out] coeffs quad equation coeffs
+\ return nothing
 */
 void coeffs_input(Coefficients* const coeffs);
+
 /*!
-Checks input flags in console
+\brief Checks input flags in console
 \param[out] only_test no input data, only tests if true 
 \param[out] do_test turn on testing if true
 \param[in] argc
 \param[in] argv
+\return nothing
 */
 void flags_input(int argc, char * argv[], bool *only_test, bool *do_test);
+
 /*!
+\brief
 Print help flag information
+\return nothing
 */
 void flag_help();
+
 /*!
-Turn off input data
+\brief Turn off input data
 \param[out] only_test no input data, only tests if true 
+\return nothing
 */
 void flag_only_test(bool *only_test);
+
 /*!
-Turn on testing
+\brief Turn on testing
 \param[out] do_test turn on testing if true
+\return nothing
 */
 void flag_do_test(bool *do_test);
+
 /*!
-Clears stdout for scanf
+\brief Clears stdout for scanf
+\return nothing
 */
 void clear_stdout();
+
 /*!
-Compares two double
+\brief Compares two double
 \param[in] x 1st number
 \param[in] y 2nd number
 \return true if equal else false
 */
 int double_compare(const double x, const double y);
+
 /*!
-Test sollving of quad equation
+\brief Test sollving of quad equation
 \param[in] test equation, contains coefficients and right roots
 \return 1 if test is ok else 0
 */
 int quad_solver_test(const TestQuad test);
+
 /*!
-Checks if quad equation solved correctly
+\brief Checks if quad equation solved correctly
 \param[in] roots roots from solving
 \param[in] right_roots expected roots
 \return true if quad equation solved correctly else false
 */
 bool is_quad_solved_incorrectly(const Roots roots, const Roots right_roots);
+
 /*!
-Do many tests
+\brief Do many tests
 \return true if test is ok else false
 */
 bool quad_solver_testing();
+
+/*!
+\brief Print red text in cosole
+\return nothing
+*/
+void colorprint(Colors color, char* format, ...);
+
+
 
 
 int main(int argc, char *argv[])
@@ -137,13 +173,66 @@ int main(int argc, char *argv[])
     if (do_test)
     {
         if (quad_solver_testing())
-            printf("Тестирование успешно\n");
+            colorprint(GREEN, "Тестирование успешно\n");
         else
-            printf("Тестирование провалено\n");
+            colorprint(RED, "Тестирование провалено\n");
     }
 
 
     return EXIT_SUCCESS;
+}
+
+void colorprint(Colors color, char *format, ...)
+{
+    int d; 
+    double f;
+    va_list factor;        
+    va_start(factor, format);   
+    
+	switch(color)
+	{
+		case RED:
+			printf("\033[31m");
+			break;
+		case GREEN:
+			printf("\033[32m");
+			break;
+		case TURQUOISE:
+			printf("\033[36m");
+			break;
+		case PURPLE:
+			printf("\033[35m");
+			break;
+		default:
+		;
+	}
+	
+	
+    for(char *c = format;*c!='\0'; c++)
+    {
+        if(*c!='%')
+        {
+            printf("%c", *c);
+            continue;
+        }
+        switch(*++c)    
+        {
+            case 'd': 
+                d = va_arg(factor, int);
+                printf("%d", d);
+                break;
+            case 'f': 
+                f = va_arg(factor, double);
+                printf("%lf", f);
+                break;
+            default:
+                printf("%c", *c);
+        }
+    }
+	
+	printf("\033[0m");
+	
+    va_end(factor);
 }
 
 int double_compare(const double x, const double y)
@@ -203,20 +292,20 @@ void roots_output(const Roots roots)
 {
     switch (roots.amount_of_roots){
         case ZERO: 
-			printf("Корней нет \n");
+			colorprint(TURQUOISE, "Корней нет \n");
             break;
         case ONE: 
-			printf("%lf \n", roots.x1);
+			colorprint(TURQUOISE, "%f \n", roots.x1);
 			break;
         case TWO: 
-			printf("%lf %lf \n", roots.x1, roots.x2);
+			colorprint(TURQUOISE, "%f %f \n", roots.x1, roots.x2);
             break;
         case INF: 
-			printf("Любое число \n");
+			colorprint(TURQUOISE, "Любое число \n");
             break;
         case NOT_INITIALIZED:
         default: 
-			fprintf(stderr, "Где-то ошибка \n");
+			colorprint(RED, "Где-то ошибка \n");
     }
 }
 
@@ -225,7 +314,7 @@ void coeffs_input(Coefficients* const coeffs)
     assert(coeffs != NULL);
     while (true)
     {
-        printf("Введите коэффициенты a, b, c: \n");
+        colorprint(PURPLE, "Введите коэффициенты a, b, c: \n");
         int accepted_values = scanf("%lf %lf %lf", &(coeffs->a), &(coeffs->b), &(coeffs->c));
         if (accepted_values != 3)
             clear_stdout();
@@ -318,9 +407,6 @@ bool quad_solver_testing()
     failed += quad_solver_test(test3);
     failed += quad_solver_test(test4);
     failed += quad_solver_test(test5);
-    if (!failed)
-    {
-        return true;
-    }
-    return false;
+    
+	return (!failed);
 }
