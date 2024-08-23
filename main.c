@@ -16,10 +16,10 @@
 enum NumberOfRoots
 {
     NOT_INITIALIZED = -2, ///< equation hasn't been made
-    INF = -1, //equation has infinte roots
-    ZERO = 0, // equation has 0 roots
-    ONE = 1, // equation has 1 root
-    TWO = 2, // equation has 2 roots
+    INF = -1, ///< equation has infinte roots
+    ZERO = 0, ///< equation has 0 roots
+    ONE = 1, ///< equation has 1 root
+    TWO = 2, ///< equation has 2 roots
 };
 
 /// Color of output text in console
@@ -32,7 +32,7 @@ enum Colors
 };
 
 /// Accuracy of double comparison
-const double EPSILON = 0.000001; 
+const double EPSILON = 0.000001;
 
 /// Structure for coefficients of quad equation
 typedef struct Coefficients {
@@ -51,8 +51,8 @@ typedef struct Roots {
 /// Structure for testing programm
 typedef struct TestQuad { 
 	int number_of_test; ///< number of test 
-	Coefficients coeffs; /// coefficients of equation
-	Roots right_roots; /// right roots of equation 
+	Coefficients coeffs; ///< coefficients of equation
+	Roots right_roots; ///< right roots of equation 
 } TestQuad;
 
 /*!
@@ -138,16 +138,31 @@ int quad_solver_test(const TestQuad test);
 bool is_quad_solved_incorrectly(const Roots roots, const Roots right_roots);
 
 /*!
-\brief Do many tests
+\brief Does many tests
 \return true if test is ok else false
 */
 bool quad_solver_testing();
 
 /*!
-\brief Print red text in cosole
+\brief Prints color text in cosole
+\param[in] color color of text
+\param[in] format pointer on the beginning of the line
 \return nothing
 */
-void colorprint(Colors color, char* format, ...);
+void colorprint(Colors color, const char* format, ...);
+
+/*!
+\brief Sets color of text in concole 
+\param[in] color color of text
+\return nothing
+*/
+void set_color(Colors color);
+
+/*!
+\brief Resets color of text in console to white
+\return nothing
+*/
+void reset_color();
 
 
 
@@ -182,13 +197,22 @@ int main(int argc, char *argv[])
     return EXIT_SUCCESS;
 }
 
-void colorprint(Colors color, char *format, ...)
+void colorprint(Colors color, const char *format, ...)
 {
-    int d; 
-    double f;
     va_list factor;        
     va_start(factor, format);   
     
+	set_color(color);
+	
+    vprintf(format, factor);
+	
+	reset_color();
+	
+    va_end(factor);
+}
+
+void set_color(Colors color)
+{
 	switch(color)
 	{
 		case RED:
@@ -206,33 +230,11 @@ void colorprint(Colors color, char *format, ...)
 		default:
 		;
 	}
-	
-	
-    for(char *c = format;*c!='\0'; c++)
-    {
-        if(*c!='%')
-        {
-            printf("%c", *c);
-            continue;
-        }
-        switch(*++c)    
-        {
-            case 'd': 
-                d = va_arg(factor, int);
-                printf("%d", d);
-                break;
-            case 'f': 
-                f = va_arg(factor, double);
-                printf("%lf", f);
-                break;
-            default:
-                printf("%c", *c);
-        }
-    }
-	
+}
+
+void reset_color()
+{
 	printf("\033[0m");
-	
-    va_end(factor);
 }
 
 int double_compare(const double x, const double y)
@@ -295,10 +297,10 @@ void roots_output(const Roots roots)
 			colorprint(TURQUOISE, "Корней нет \n");
             break;
         case ONE: 
-			colorprint(TURQUOISE, "%f \n", roots.x1);
+			colorprint(TURQUOISE, "%lf \n", roots.x1);
 			break;
         case TWO: 
-			colorprint(TURQUOISE, "%f %f \n", roots.x1, roots.x2);
+			colorprint(TURQUOISE, "%lf %lf \n", roots.x1, roots.x2);
             break;
         case INF: 
 			colorprint(TURQUOISE, "Любое число \n");
@@ -395,18 +397,17 @@ bool is_quad_solved_incorrectly(const Roots roots, const Roots right_roots)
 
 bool quad_solver_testing()
 {
+	const int number_os_tests = 5;
     int failed = 0;
-    TestQuad test1 = {1, {1, 2, -3}, {TWO, 1, -3}};
-    TestQuad test2 = {2, {0, 0, 0}, {INF, 0, 0}};
-    TestQuad test3 = {3, {0, 0, 1}, {ZERO, 0, 0}};
-    TestQuad test4 = {4, {0.0000001, 1, -1}, {ONE, 1, 1}};
-    TestQuad test5 = {5, {10.101, -2043.997956, 98390.5925184}, {TWO, 123.456, 78.9}};
-
-    failed += quad_solver_test(test1);
-    failed += quad_solver_test(test2);
-    failed += quad_solver_test(test3);
-    failed += quad_solver_test(test4);
-    failed += quad_solver_test(test5);
+	TestQuad data_tests[number_os_tests] = {{0, {1, 2, -3}, {TWO, 1, -3}}, 
+											{1, {0, 0, 0}, {INF, 0, 0}},
+											{2, {0, 0, 1}, {ZERO, 0, 0}},
+											{3, {0.0000001, 1, -1}, {ONE, 1, 1}},
+											{4, {10.101, -2043.997956, 98390.5925184}, {TWO, 123.456, 78.9}}};
+    for (int i = 0; i < number_os_tests; i++)
+	{
+		failed += quad_solver_test(data_tests[i]);
+	}
     
 	return (!failed);
 }
