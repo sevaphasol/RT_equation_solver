@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['x1_34',['x1',['../struct_roots.html#a8e03a9505f8fd16a671cdc446ce48d7a',1,'Roots']]],
-  ['x2_35',['x2',['../struct_roots.html#a2ba5be788affd19f80ec3855cb944e88',1,'Roots']]]
+  ['testquad_33',['TestQuad',['../struct_test_quad.html',1,'TestQuad'],['../main_8c.html#a7fb655ed88254180c44f1b216e336d4d',1,'TestQuad():&#160;main.c']]],
+  ['two_34',['TWO',['../main_8c.html#a4a3fa2132b655aa86d534ff95c287c8fa0e793500a63ffa575b9b712ca3bc9851',1,'main.c']]]
 ];

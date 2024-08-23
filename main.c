@@ -10,29 +10,38 @@
 #include <math.h>
 #include <stdlib.h>
 #include <string.h>
+#include <getopt.h>
 
 
 /// Number of quad equation roots
 enum NumberOfRoots
 {
     NOT_INITIALIZED = -2, ///< equation hasn't been made
-    INF = -1, ///< equation has infinte roots
-    ZERO = 0, ///< equation has 0 roots
-    ONE = 1, ///< equation has 1 root
-    TWO = 2, ///< equation has 2 roots
+    INF             = -1, ///< equation has infinte roots
+    ZERO            = 0,  ///< equation has 0 roots
+    ONE             = 1,  ///< equation has 1 root
+    TWO             = 2,  ///< equation has 2 roots
 };
 
 /// Color of output text in console
 enum Colors
 {
-	RED,
-	GREEN,
+	RED        = 0,
+	GREEN      = 1,
 	TURQUOISE,
 	PURPLE,
 };
 
+/// Vals for getopt_long() return 
+enum long_option_vals
+{
+	HELP = 1,
+	DO_TEST = 2,
+	ONLY_TEST = 3,
+};
+
 /// Accuracy of double comparison
-const double EPSILON = 0.000001;
+const double EPSILON = 0.000001; 
 
 /// Structure for coefficients of quad equation
 typedef struct Coefficients {
@@ -149,7 +158,7 @@ bool quad_solver_testing();
 \param[in] format pointer on the beginning of the line
 \return nothing
 */
-void colorprint(Colors color, const char* format, ...);
+void color_print(const Colors color, const char* format, ...);
 
 /*!
 \brief Sets color of text in concole 
@@ -164,6 +173,8 @@ void set_color(Colors color);
 */
 void reset_color();
 
+void flags_input_getopt(int argc, char * const argv[], bool *only_test, bool *do_test);
+
 
 
 
@@ -174,8 +185,10 @@ int main(int argc, char *argv[])
     bool only_test = false;
     bool do_test = false;
 
-    flags_input(argc, argv, &only_test, &do_test);
-
+    // flags_input(argc, argv, &only_test, &do_test);
+	
+	flags_input_getopt(argc, argv, &only_test, &do_test);
+	
     if (!only_test)
     {
         coeffs_input(&coeffs);
@@ -197,7 +210,7 @@ int main(int argc, char *argv[])
     return EXIT_SUCCESS;
 }
 
-void colorprint(Colors color, const char *format, ...)
+void color_print(const Colors color, const char *format, ...)
 {
     va_list factor;        
     va_start(factor, format);   
@@ -324,6 +337,52 @@ void coeffs_input(Coefficients* const coeffs)
             break;
     }
 }
+
+void flags_input_getopt(int argc, char * const argv[], bool *only_test, bool *do_test)
+{
+	while (true)
+	{
+        int option_index = 0;
+		struct option long_options[] = {
+			{.name = "help", .has_arg = no_argument, .flag = NULL, .val = HELP},
+			{.name = "do_test", .has_arg = no_argument, .flag = NULL, .val = DO_TEST},
+			{.name = "only_test", .has_arg = no_argument, .flag = NULL, .val = ONLY_TEST},
+		};
+		
+		int c = getopt_long(argc, argv, "hdo", long_options, &option_index);
+		
+		if (c == -1)
+			break;
+		
+		switch (c)
+		{
+			case HELP:
+			case 'h':
+				flag_help();
+				break;
+			case DO_TEST:
+			case 'd':
+				flag_do_test(do_test);
+				break;
+			case ONLY_TEST:
+			case 'o':
+				flag_only_test(only_test);
+				break;
+			case '?':
+				break;
+			default:
+				colorprint(RED, "Error\n");
+        }
+	}
+	
+	if (optind < argc) {
+        fprintf(stderr, "elemts of ARGV, not pararmetrs: ");
+        while (optind < argc)
+            printf("%s ", argv[optind++]);
+        printf("\n");
+    }
+}
+
 
 void flags_input(int argc, char *argv[], bool *only_test, bool *do_test)
 {

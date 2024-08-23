@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['numberofroots_70',['NumberOfRoots',['../main_8c.html#a4a3fa2132b655aa86d534ff95c287c8f',1,'main.c']]]
+  ['long_5foption_5fvals_71',['long_option_vals',['../main_8c.html#a5c7c6e67d64ea0a3e8ee59f2dccbf5ac',1,'main.c']]]
 ];

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['zero_36',['ZERO',['../main_8c.html#a4a3fa2132b655aa86d534ff95c287c8fae117e3533122c80b262257b49b21cddf',1,'main.c']]]
+  ['x1_35',['x1',['../struct_roots.html#a8e03a9505f8fd16a671cdc446ce48d7a',1,'Roots']]],
+  ['x2_36',['x2',['../struct_roots.html#a2ba5be788affd19f80ec3855cb944e88',1,'Roots']]]
 ];
