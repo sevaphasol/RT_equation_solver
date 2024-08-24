@@ -32,12 +32,8 @@ int main(int argc, char *argv[])
 
     if (do_test)
     {
-        if (quad_solver_testing())
-			green_print("Test successfull\n");
-        else
-            red_print("Test failed\n");
-    }
-
+        quad_solver_testing();
+	}
 
     return EXIT_SUCCESS;
 }

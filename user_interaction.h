@@ -18,7 +18,7 @@ void roots_output(const Roots roots);
 \param[out] coeffs quad equation coeffs
 \ return void
 */
-void coeffs_input(Coefficients* const coeffs);
+void coeffs_input(Coefficients * const coeffs);
 
 /*!
 \brief Clears stdout for scanf

@@ -3,13 +3,11 @@
     \brief This file is created for input/output functions 
 */
 
-
 #include <stdio.h>
 #include <TXLib.h>
 #include "colors.h"
 #include "quad_solve.h"
 #include "user_interaction.h"
-
 
 void roots_output(const Roots roots)
 {
@@ -32,7 +30,7 @@ void roots_output(const Roots roots)
     }
 }
 
-void coeffs_input(Coefficients* const coeffs)
+void coeffs_input(Coefficients * const coeffs)
 {
     assert(coeffs != NULL);
     while (true)

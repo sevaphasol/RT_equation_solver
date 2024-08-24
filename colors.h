@@ -6,19 +6,20 @@
 #ifndef COLORS_H__
 #define COLORS_H__
 
-#define red_code        "\033[31m"
-#define green_code      "\033[32m"
-#define yellow_code     "\033[33m"
-#define blue_code       "\033[34m"
-#define purple_code     "\033[35m"
-#define turquoise_code  "\033[36m"
+#define WHITE_CODE      "\033[0m"
+#define RED_CODE        "\033[31m"
+#define GREEN_CODE      "\033[32m"
+#define YELLOW_CODE     "\033[33m"
+#define BLUE_CODE       "\033[34m"
+#define PURPLE_CODE     "\033[35m"
+#define TURQUOISE_CODE  "\033[36m"
 
-#define red_print(str, ...)             color_print(red_code, str, ##__VA_ARGS__)
-#define green_print(str, ...)           color_print(green_code, str, ##__VA_ARGS__)
-#define yellow_print(str, ...)          color_print(yellow_code, str, ##__VA_ARGS__)
-#define blue_print(str, ...)            color_print(blue_code, str, ##__VA_ARGS__)
-#define purple_print(str, ...)          color_print(purple_code, str, ##__VA_ARGS__)
-#define turquoise_print(str, ...)       color_print(turquoise_code, str, ##__VA_ARGS__)
+#define red_print(str, ...)             color_print(RED_CODE, str, ##__VA_ARGS__)
+#define green_print(str, ...)           color_print(GREEN_CODE, str, ##__VA_ARGS__)
+#define yellow_print(str, ...)          color_print(YELLOW_CODE, str, ##__VA_ARGS__)
+#define blue_print(str, ...)            color_print(BLUE_CODE, str, ##__VA_ARGS__)
+#define purple_print(str, ...)          color_print(PURPLE_CODE, str, ##__VA_ARGS__)
+#define turquoise_print(str, ...)       color_print(TURQUOISE_CODE, str, ##__VA_ARGS__)
 
 /*!
 \brief Prints color text in cosole

@@ -3,11 +3,9 @@
     \brief This file is created for solving quadratic equation
 */
 
-
 #include <TXLib.h>
 #include <math.h>
 #include "quad_solve.h"
-
 
 int double_compare(const double x, const double y)
 {
@@ -16,7 +14,7 @@ int double_compare(const double x, const double y)
     return (fabs(x - y) < EPSILON);
 }
 
-void quad_solver(const Coefficients coeffs, Roots* const roots)
+void quad_solver(const Coefficients coeffs, Roots * const roots)
 {
     assert (isfinite(coeffs.a));
     assert (isfinite(coeffs.b));
@@ -48,16 +46,18 @@ void quad_solver(const Coefficients coeffs, Roots* const roots)
 
         if (double_compare(d, 0))
         {
+			roots->amount_of_roots = ONE;
             roots->x1 = roots->x2 = -coeffs.b/(2*coeffs.a);
-            roots->amount_of_roots = ONE;
         }
         else if (d < 0)
+		{
             roots->amount_of_roots = ZERO;
+		}
         else if (d > 0)
         {
+			roots->amount_of_roots = TWO;
             roots->x1 = (-coeffs.b + sqrt(d))/(2*coeffs.a);
             roots->x2 = (-coeffs.b - sqrt(d))/(2*coeffs.a);
-            roots->amount_of_roots = TWO;
         }
     }
 }

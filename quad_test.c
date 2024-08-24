@@ -3,13 +3,11 @@
     \brief This file is created for testing solving quadratic equation
 */
 
-
 #include <stdio.h>
 #include <TXLib.h>
 #include "colors.h"
 #include "quad_solve.h"
 #include "quad_test.h"
-
 
 int quad_solver_test(const TestQuad test)
 {
@@ -20,12 +18,14 @@ int quad_solver_test(const TestQuad test)
         red_print("Error\n"
 				  "Test %d\n"
                   "Equation with coefficients %lf, %lf, %lf has %d roots, this roots: %lf %lf\n"
-                  "Number of roots solved by programm: %d. Roots given by programm: %lf и %lf\n",
+                  "Number of roots solved by programm: %d. Roots given by programm: %lf and %lf\n",
                   test.number_of_test, test.coeffs.a, test.coeffs.b, test.coeffs.c, test.right_roots.amount_of_roots, test.right_roots.x1, test.right_roots.x2,
                   roots.amount_of_roots, roots.x1, roots.x2);
         return -1;
     }
-    return 0;
+	else 
+		green_print("Test %d successfull\n", test.number_of_test);
+		return 0;
 }
 
 bool is_quad_solved_incorrectly(const Roots roots, const Roots right_roots)
@@ -37,25 +37,38 @@ bool is_quad_solved_incorrectly(const Roots roots, const Roots right_roots)
 
 bool quad_solver_testing()
 {
-	const int number_os_tests = 5;
     int failed = 0;
-	// fscanf
-	// 
-	TestQuad data_tests[number_os_tests] = {{0, {1, 2, -3}, {TWO, 1, -3}}, 
+	FILE *fp = fopen("tests.txt", "r");
+	
+	/*
+	TestQuad data_tests[number_of_tests] = {{0, {1, 2, -3}, {TWO, 1, -3}}, 
 											{1, {0, 0, 0}, {INF, 0, 0}},
 											{2, {0, 0, 1}, {ZERO, 0, 0}},
 											{3, {0.0000001, 1, -1}, {ONE, 1, 1}},
 											{4, {10.101, -2043.997956, 98390.5925184}, {TWO, 123.456, 78.9}}};
-    for (int i = 0; i < number_os_tests; i++)
+	*/
+	
+    while (true)
 	{
-		failed += quad_solver_test(data_tests[i]);
+		TestQuad test = {};
+		int amount_of_roots = 0;
+		if (fscanf(fp, "%d %lf %lf %lf %d %lf %lf\n", &test.number_of_test, &test.coeffs.a, &test.coeffs.b,
+		          &test.coeffs.c, &amount_of_roots, &test.right_roots.x1, &test.right_roots.x2) != 7)
+			break;
+		test.right_roots.amount_of_roots = (NumberOfRoots) amount_of_roots;
+
+		// failed += quad_solver_test(data_tests[i]);
+		failed += quad_solver_test(test);
 	}
     
-	return (!failed);
+	if (!failed)
+		green_print("Testing is successfull\n");
+	else
+		red_print("Testing failed\n");
+	
+	return !failed;
 }
 
-
-// green_test_print
 // запустить крипт 
 // как использовать проект 
 // о чем проект

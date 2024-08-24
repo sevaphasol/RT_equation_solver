@@ -39,7 +39,7 @@ typedef struct Roots {
 \param[in] coeffs quad equation coefficients
 \return void
 */
-void quad_solver(const Coefficients coeffs, Roots* const roots);
+void quad_solver(const Coefficients coeffs, Roots * const roots);
 
 /*!
 \brief Compares two double

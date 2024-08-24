@@ -9,7 +9,7 @@
 #include "colors.h"
 #include "flags.h"
 
-void flags_input_getopt(int argc, char * const argv[], bool *only_test, bool *do_test)
+void flags_input_getopt(int argc, char *argv[], bool *only_test, bool *do_test)
 {
 	while (true)
 	{

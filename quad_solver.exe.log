@@ -1,0 +1,270 @@
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe,
+
+ВНЕЗАПНО: Ю-ху! Переполнение стека!
+
+#1: Исключение EXCEPTION_STACK_OVERFLOW (0xC00000FD) при выполнении кода по адресу 0x762804FB в функции GetConsoleOutputCP() в модуле C:\WINDOWS\System32\KERNELBASE.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x006D951C (32-bit), Flags: Cmdre0, Thread: 0x552C (Main), GetLastError(): 126 (Не найден указанный модуль). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x762804FB in C:\WINDOWS\System32\KERNELBASE.dll: GetConsoleOutputCP()
+# 1 0x762804CE in C:\WINDOWS\System32\KERNELBASE.dll: GetConsoleOutputCP()
+# 2 0x7628034E in C:\WINDOWS\System32\KERNELBASE.dll: GetConsoleMode()
+# 3 0x7705E694 in C:\WINDOWS\System32\msvcrt.dll: write()
+# 4 0x7705E510 in C:\WINDOWS\System32\msvcrt.dll: write()
+# 5 0x770863E7 in C:\WINDOWS\System32\msvcrt.dll: flsbuf()
+# 6 0x00534ACD in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: putchar()
+# 7 0x00438E07 in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: set_color()
+# 8 0x00438DB0 in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: color_print()
+# 9 0x00438E2F in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: reset_color()
+#10 0x00438DC7 in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: color_print()
+#11 0x00438E2F in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: reset_color()
+#12 0x00438DC7 in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: color_print()
+#13 0x00438E2F in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: reset_color()
+#14 0x00438DC7 in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: color_print()
+#15 0x00438E2F in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: reset_color()
+#16 0x00438DC7 in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: color_print()
+#17 0x00438E2F in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: reset_color()
+#18 0x00438DC7 in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: color_print()
+#19 0x00438E2F in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: reset_color()
+#20 0x00438DC7 in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: color_print()
+#21 0x00438E2F in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: reset_color()
+#22 0x00438DC7 in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: color_print()
+#23 0x00438E2F in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: reset_color()
+#24 0x00438DC7 in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: color_print()
+#25 0x00438E2F in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: reset_color()
+#26 0x00438DC7 in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: color_print()
+#27 0x00438E2F in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: reset_color()
+#28 0x00438DC7 in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: color_print()
+#29 0x00438E2F in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: reset_color()
+#30 0x00438DC7 in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: color_print()
+#31 0x00438E2F in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: reset_color()
+#32 0x00438DC7 in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: color_print()
+#33 0x00438E2F in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: reset_color()
+#34 0x00438DC7 in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: color_print()
+#35 0x00438E2F in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: reset_color()
+#36 0x00438DC7 in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: color_print()
+#37 0x00438E2F in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: reset_color()
+#38 0x00438DC7 in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: color_print()
+#39 0x00438E2F in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: reset_color()
+#40 0x00438DC7 in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: color_print()
+#41 0x00438E2F in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: reset_color()
+#42 0x00438DC7 in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: color_print()
+#43 0x00438E2F in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: reset_color()
+#44 0x00438DC7 in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: color_print()
+#45 0x00438E2F in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: reset_color()
+#46 0x00438DC7 in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: color_print()
+#47 0x00438E2F in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: reset_color()
+#48 0x00438DC7 in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: color_print()
+#49 0x00438E2F in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: reset_color()
+#50 0x00438DC7 in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: color_print()
+#51 0x00438E2F in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: reset_color()
+#52 0x00438DC7 in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: color_print()
+#53 0x00438E2F in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: reset_color()
+#54 0x00438DC7 in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: color_print()
+#55 0x00438E2F in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: reset_color()
+#56 0x00438DC7 in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: color_print()
+#57 0x00438E2F in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: reset_color()
+#58 0x00438DC7 in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: color_print()
+#59 0x00438E2F in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: reset_color()
+#60 0x00438DC7 in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: color_print()
+#61 0x00438E2F in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: reset_color()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\program files\codeblocks\mingw\include\txlib.h
+Compiled:	Aug 24 2024 04:56:04, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, Debug
+Started:	Aug 24 2024 04:56:11
+
+Run file:	C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe
+Directory:	C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe,
+
+ВНЕЗАПНО: Ю-ху! Переполнение стека!
+
+#1: Исключение EXCEPTION_STACK_OVERFLOW (0xC00000FD) при выполнении кода по адресу 0x762804FB в функции GetConsoleOutputCP() в модуле C:\WINDOWS\System32\KERNELBASE.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции _set_se_translator() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x006D951C (32-bit), Flags: Cmdre0, Thread: 0x552C (Main), GetLastError(): 126 (Не найден указанный модуль). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x762804FB in C:\WINDOWS\System32\KERNELBASE.dll: GetConsoleOutputCP()
+# 1 0x762804CE in C:\WINDOWS\System32\KERNELBASE.dll: GetConsoleOutputCP()
+# 2 0x7628034E in C:\WINDOWS\System32\KERNELBASE.dll: GetConsoleMode()
+# 3 0x7705E694 in C:\WINDOWS\System32\msvcrt.dll: write()
+# 4 0x7705E510 in C:\WINDOWS\System32\msvcrt.dll: write()
+# 5 0x770863E7 in C:\WINDOWS\System32\msvcrt.dll: flsbuf()
+# 6 0x00534ACD in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: putchar()
+# 7 0x00438E07 in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: set_color()
+# 8 0x00438DB0 in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: color_print()
+# 9 0x00438E2F in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: reset_color()
+#10 0x00438DC7 in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: color_print()
+#11 0x00438E2F in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: reset_color()
+#12 0x00438DC7 in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: color_print()
+#13 0x00438E2F in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: reset_color()
+#14 0x00438DC7 in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: color_print()
+#15 0x00438E2F in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: reset_color()
+#16 0x00438DC7 in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: color_print()
+#17 0x00438E2F in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: reset_color()
+#18 0x00438DC7 in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: color_print()
+#19 0x00438E2F in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: reset_color()
+#20 0x00438DC7 in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: color_print()
+#21 0x00438E2F in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: reset_color()
+#22 0x00438DC7 in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: color_print()
+#23 0x00438E2F in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: reset_color()
+#24 0x00438DC7 in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: color_print()
+#25 0x00438E2F in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: reset_color()
+#26 0x00438DC7 in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: color_print()
+#27 0x00438E2F in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: reset_color()
+#28 0x00438DC7 in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: color_print()
+#29 0x00438E2F in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: reset_color()
+#30 0x00438DC7 in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: color_print()
+#31 0x00438E2F in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: reset_color()
+#32 0x00438DC7 in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: color_print()
+#33 0x00438E2F in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: reset_color()
+#34 0x00438DC7 in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: color_print()
+#35 0x00438E2F in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: reset_color()
+#36 0x00438DC7 in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: color_print()
+#37 0x00438E2F in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: reset_color()
+#38 0x00438DC7 in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: color_print()
+#39 0x00438E2F in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: reset_color()
+#40 0x00438DC7 in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: color_print()
+#41 0x00438E2F in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: reset_color()
+#42 0x00438DC7 in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: color_print()
+#43 0x00438E2F in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: reset_color()
+#44 0x00438DC7 in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: color_print()
+#45 0x00438E2F in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: reset_color()
+#46 0x00438DC7 in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: color_print()
+#47 0x00438E2F in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: reset_color()
+#48 0x00438DC7 in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: color_print()
+#49 0x00438E2F in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: reset_color()
+#50 0x00438DC7 in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: color_print()
+#51 0x00438E2F in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: reset_color()
+#52 0x00438DC7 in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: color_print()
+#53 0x00438E2F in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: reset_color()
+#54 0x00438DC7 in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: color_print()
+#55 0x00438E2F in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: reset_color()
+#56 0x00438DC7 in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: color_print()
+#57 0x00438E2F in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: reset_color()
+#58 0x00438DC7 in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: color_print()
+#59 0x00438E2F in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: reset_color()
+#60 0x00438DC7 in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: color_print()
+#61 0x00438E2F in C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe: reset_color()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\program files\codeblocks\mingw\include\txlib.h
+Compiled:	Aug 24 2024 04:56:04, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, Debug
+Started:	Aug 24 2024 04:56:11
+
+Run file:	C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe
+Directory:	C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe,
+
+ВНЕЗАПНО: Исключение С++, вызванное оператором throw.
+
+#2: Исключение EXCEPTION_CPP_MSC (0xE06D7363) при выполнении кода по адресу 0x7628A942 в функции RaiseException() в модуле C:\WINDOWS\System32\KERNELBASE.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+Ой, всё (EXCEPTION_NONCONTINUABLE).
+
+#3: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x006D951C (32-bit), Flags: Cmdre0, Thread: 0x2E9C. 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x7628A942 in C:\WINDOWS\System32\KERNELBASE.dll: RaiseException()
+# 1 0x75DEC3D8 in C:\WINDOWS\System32\ucrtbase.dll: CxxThrowException()
+#16 0x75987BA9 in C:\WINDOWS\System32\KERNEL32.dll: BaseThreadInitThunk()
+#17 0x7715C10B in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlInitializeExceptionChain()
+#18 0x7715C08F in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlClearBits()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\program files\codeblocks\mingw\include\txlib.h
+Compiled:	Aug 24 2024 04:56:04, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, Debug
+Started:	Aug 24 2024 04:56:12
+
+Run file:	C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe
+Directory:	C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe,
+
+ВНЕЗАПНО: Исключение С++, вызванное оператором throw.
+
+#1: Исключение EXCEPTION_CPP_MSC (0xE06D7363) при выполнении кода по адресу 0x7628A942 в функции RaiseException() в модуле C:\WINDOWS\System32\KERNELBASE.dll. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+Ой, всё (EXCEPTION_NONCONTINUABLE).
+
+#1: TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400], Instance: 0x006D951C (32-bit), Flags: Cmdre0, Thread: 0x71C8. 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x7628A942 in C:\WINDOWS\System32\KERNELBASE.dll: RaiseException()
+# 1 0x75DEC3D8 in C:\WINDOWS\System32\ucrtbase.dll: CxxThrowException()
+#14 0x7712E7EA in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlAppendUnicodeStringToString()
+#15 0x7712F687 in C:\WINDOWS\SYSTEM32\ntdll.dll: TpCallbackIndependent()
+#16 0x75987BA9 in C:\WINDOWS\System32\KERNEL32.dll: BaseThreadInitThunk()
+#17 0x7715C10B in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlInitializeExceptionChain()
+#18 0x7715C08F in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlClearBits()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 173, Date: 2024-06-23 22:37:05 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\program files\codeblocks\mingw\include\txlib.h
+Compiled:	Aug 24 2024 12:47:06, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, Debug
+Started:	Aug 24 2024 12:47:17
+
+Run file:	C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver\quad_solver.exe
+Directory:	C:\Users\user\Documents\GitHub\RT_equation_solver\RT_equation_solver
+
+--------------------------------------------------

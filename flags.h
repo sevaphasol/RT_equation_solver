@@ -20,7 +20,7 @@ enum long_option_vals
 \param[out] do_test turn on testing if true
 \return void
 */
-void flags_input(int argc, char * argv[], bool *only_test, bool *do_test);
+void flags_input(int argc, char *argv[], bool *only_test, bool *do_test);
 
 /*!
 \brief
@@ -49,6 +49,6 @@ void flag_do_test(bool *do_test);
 \param[out] do_test turn on testing if true
 \return void
 */
-void flags_input_getopt(int argc, char * const argv[], bool *only_test, bool *do_test);
+void flags_input_getopt(int argc, char *argv[], bool *only_test, bool *do_test);
 
 #endif // FLAGS_H__
