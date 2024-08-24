@@ -6,20 +6,21 @@
 #include <TXLib.h>
 #include <math.h>
 #include "quad_solve.h"
+#include "quad_assert.h"
 
 int double_compare(const double x, const double y)
 {
-    assert (isfinite(x));
-    assert (isfinite(y));
+    quad_assert (isfinite(x), __LINE__, __FILE__);
+    quad_assert (isfinite(y), __LINE__, __FILE__);
     return (fabs(x - y) < EPSILON);
 }
 
 void quad_solver(const Coefficients coeffs, Roots * const roots)
 {
-    assert (isfinite(coeffs.a));
-    assert (isfinite(coeffs.b));
-    assert (isfinite(coeffs.c));
-    assert (roots != NULL);
+    quad_assert (isfinite(coeffs.a), __LINE__, __FILE__);
+    quad_assert (isfinite(coeffs.b), __LINE__, __FILE__);
+    quad_assert (isfinite(coeffs.c), __LINE__, __FILE__);
+    quad_assert (roots != NULL, __LINE__, __FILE__);
 
     if (double_compare(coeffs.a, 0))
     {

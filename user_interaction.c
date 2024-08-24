@@ -8,6 +8,7 @@
 #include "colors.h"
 #include "quad_solve.h"
 #include "user_interaction.h"
+#include "quad_assert.h"
 
 void roots_output(const Roots roots)
 {
@@ -32,7 +33,7 @@ void roots_output(const Roots roots)
 
 void coeffs_input(Coefficients * const coeffs)
 {
-    assert(coeffs != NULL);
+    quad_assert(coeffs != NULL, __LINE__, __FILE__);
     while (true)
     {
         purple_print("Enter coefficients a, b, c: \n");

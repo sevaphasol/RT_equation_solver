@@ -39,34 +39,32 @@ bool quad_solver_testing()
 {
     int failed = 0;
 	FILE *fp = fopen("tests.txt", "r");
-	
-	/*
-	TestQuad data_tests[number_of_tests] = {{0, {1, 2, -3}, {TWO, 1, -3}}, 
-											{1, {0, 0, 0}, {INF, 0, 0}},
-											{2, {0, 0, 1}, {ZERO, 0, 0}},
-											{3, {0.0000001, 1, -1}, {ONE, 1, 1}},
-											{4, {10.101, -2043.997956, 98390.5925184}, {TWO, 123.456, 78.9}}};
-	*/
-	
-    while (true)
+	if (fp != NULL)
 	{
-		TestQuad test = {};
-		int amount_of_roots = 0;
-		if (fscanf(fp, "%d %lf %lf %lf %d %lf %lf\n", &test.number_of_test, &test.coeffs.a, &test.coeffs.b,
-		          &test.coeffs.c, &amount_of_roots, &test.right_roots.x1, &test.right_roots.x2) != 7)
-			break;
-		test.right_roots.amount_of_roots = (NumberOfRoots) amount_of_roots;
+		while (true)
+		{
+			TestQuad test = {};
+			int amount_of_roots = 0;
+			if (fscanf(fp, "%d %lf %lf %lf %d %lf %lf\n", &test.number_of_test, &test.coeffs.a, &test.coeffs.b,
+					  &test.coeffs.c, &amount_of_roots, &test.right_roots.x1, &test.right_roots.x2) != 7)
+				break;
+			test.right_roots.amount_of_roots = (NumberOfRoots) amount_of_roots;
 
-		// failed += quad_solver_test(data_tests[i]);
-		failed += quad_solver_test(test);
+			failed += quad_solver_test(test);
+		}
+
+		if (!failed)
+			green_print("Testing is successfull\n");
+		else
+			red_print("Testing failed\n");
+
+		return !failed;		
 	}
-    
-	if (!failed)
-		green_print("Testing is successfull\n");
-	else
-		red_print("Testing failed\n");
-	
-	return !failed;
+	else 
+	{
+		printf("File hasn't been read\n");
+	}
+	return -1;
 }
 
 // запустить крипт 
