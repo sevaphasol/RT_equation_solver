@@ -1,0 +1,131 @@
+\hypertarget{quad__solve_8h}{}\doxysection{quad\+\_\+solve.\+h File Reference}
+\label{quad__solve_8h}\index{quad\_solve.h@{quad\_solve.h}}
+
+
+This file is created for solving quadratic equation.  
+
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_coefficients}{Coefficients}}
+\begin{DoxyCompactList}\small\item\em Structure for coefficients of quad equation. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_roots}{Roots}}
+\begin{DoxyCompactList}\small\item\em Structure for roots of quad equation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{quad__solve_8h_a916f5e3023b57c44629c5bd56ba3e914}\label{quad__solve_8h_a916f5e3023b57c44629c5bd56ba3e914}} 
+typedef struct \mbox{\hyperlink{struct_coefficients}{Coefficients}} \mbox{\hyperlink{quad__solve_8h_a916f5e3023b57c44629c5bd56ba3e914}{Coefficients}}
+\begin{DoxyCompactList}\small\item\em Structure for coefficients of quad equation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{quad__solve_8h_a5d8fa3cf684cd9757d170adbb0baa1ea}\label{quad__solve_8h_a5d8fa3cf684cd9757d170adbb0baa1ea}} 
+typedef struct \mbox{\hyperlink{struct_roots}{Roots}} \mbox{\hyperlink{quad__solve_8h_a5d8fa3cf684cd9757d170adbb0baa1ea}{Roots}}
+\begin{DoxyCompactList}\small\item\em Structure for roots of quad equation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{quad__solve_8h_a4a3fa2132b655aa86d534ff95c287c8f}{Number\+Of\+Roots}} \{ \newline
+\mbox{\hyperlink{quad__solve_8h_a4a3fa2132b655aa86d534ff95c287c8fa5b2b878895a108b84dc5e2f237d72ef1}{NOT\+\_\+\+INITIALIZED}} = -\/2
+, \mbox{\hyperlink{quad__solve_8h_a4a3fa2132b655aa86d534ff95c287c8fa2e6059d72d8fde88f3127eb147e4eff8}{INF}} = -\/1
+, \mbox{\hyperlink{quad__solve_8h_a4a3fa2132b655aa86d534ff95c287c8fae117e3533122c80b262257b49b21cddf}{ZERO}} = 0
+, \mbox{\hyperlink{quad__solve_8h_a4a3fa2132b655aa86d534ff95c287c8fa7a725f13af144bdef532d0389ba75e0d}{ONE}} = 1
+, \newline
+\mbox{\hyperlink{quad__solve_8h_a4a3fa2132b655aa86d534ff95c287c8fa0e793500a63ffa575b9b712ca3bc9851}{TWO}} = 2
+ \}
+\begin{DoxyCompactList}\small\item\em Number of quad equation roots. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{quad__solve_8h_a54ecbb1202db6d0ef81f3285847832d3}{quad\+\_\+solver}} (const \mbox{\hyperlink{struct_coefficients}{Coefficients}} coeffs, \mbox{\hyperlink{struct_roots}{Roots}} $\ast$const roots)
+\begin{DoxyCompactList}\small\item\em Solves quad equation. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{quad__solve_8h_aa13ad62ee84d1cd9a5655344b058d43a}{double\+\_\+compare}} (const double x, const double y)
+\begin{DoxyCompactList}\small\item\em Compares two double. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{quad__solve_8h_a596344e5a2992d2beec43b76a6294de0}\label{quad__solve_8h_a596344e5a2992d2beec43b76a6294de0}} 
+const double \mbox{\hyperlink{quad__solve_8h_a596344e5a2992d2beec43b76a6294de0}{EPSILON}} = 0.\+000001
+\begin{DoxyCompactList}\small\item\em Accuracy of double comparison. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file is created for solving quadratic equation. 
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{quad__solve_8h_a4a3fa2132b655aa86d534ff95c287c8f}\label{quad__solve_8h_a4a3fa2132b655aa86d534ff95c287c8f}} 
+\index{quad\_solve.h@{quad\_solve.h}!NumberOfRoots@{NumberOfRoots}}
+\index{NumberOfRoots@{NumberOfRoots}!quad\_solve.h@{quad\_solve.h}}
+\doxysubsubsection{\texorpdfstring{NumberOfRoots}{NumberOfRoots}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{quad__solve_8h_a4a3fa2132b655aa86d534ff95c287c8f}{Number\+Of\+Roots}}}
+
+
+
+Number of quad equation roots. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NOT\_INITIALIZED@{NOT\_INITIALIZED}!quad\_solve.h@{quad\_solve.h}}\index{quad\_solve.h@{quad\_solve.h}!NOT\_INITIALIZED@{NOT\_INITIALIZED}}}\mbox{\Hypertarget{quad__solve_8h_a4a3fa2132b655aa86d534ff95c287c8fa5b2b878895a108b84dc5e2f237d72ef1}\label{quad__solve_8h_a4a3fa2132b655aa86d534ff95c287c8fa5b2b878895a108b84dc5e2f237d72ef1}} 
+NOT\+\_\+\+INITIALIZED&equation hasn\textquotesingle{}t been made \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INF@{INF}!quad\_solve.h@{quad\_solve.h}}\index{quad\_solve.h@{quad\_solve.h}!INF@{INF}}}\mbox{\Hypertarget{quad__solve_8h_a4a3fa2132b655aa86d534ff95c287c8fa2e6059d72d8fde88f3127eb147e4eff8}\label{quad__solve_8h_a4a3fa2132b655aa86d534ff95c287c8fa2e6059d72d8fde88f3127eb147e4eff8}} 
+INF&equation has infinte roots \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ZERO@{ZERO}!quad\_solve.h@{quad\_solve.h}}\index{quad\_solve.h@{quad\_solve.h}!ZERO@{ZERO}}}\mbox{\Hypertarget{quad__solve_8h_a4a3fa2132b655aa86d534ff95c287c8fae117e3533122c80b262257b49b21cddf}\label{quad__solve_8h_a4a3fa2132b655aa86d534ff95c287c8fae117e3533122c80b262257b49b21cddf}} 
+ZERO&equation has 0 roots \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ONE@{ONE}!quad\_solve.h@{quad\_solve.h}}\index{quad\_solve.h@{quad\_solve.h}!ONE@{ONE}}}\mbox{\Hypertarget{quad__solve_8h_a4a3fa2132b655aa86d534ff95c287c8fa7a725f13af144bdef532d0389ba75e0d}\label{quad__solve_8h_a4a3fa2132b655aa86d534ff95c287c8fa7a725f13af144bdef532d0389ba75e0d}} 
+ONE&equation has 1 root \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TWO@{TWO}!quad\_solve.h@{quad\_solve.h}}\index{quad\_solve.h@{quad\_solve.h}!TWO@{TWO}}}\mbox{\Hypertarget{quad__solve_8h_a4a3fa2132b655aa86d534ff95c287c8fa0e793500a63ffa575b9b712ca3bc9851}\label{quad__solve_8h_a4a3fa2132b655aa86d534ff95c287c8fa0e793500a63ffa575b9b712ca3bc9851}} 
+TWO&equation has 2 roots \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{quad__solve_8h_aa13ad62ee84d1cd9a5655344b058d43a}\label{quad__solve_8h_aa13ad62ee84d1cd9a5655344b058d43a}} 
+\index{quad\_solve.h@{quad\_solve.h}!double\_compare@{double\_compare}}
+\index{double\_compare@{double\_compare}!quad\_solve.h@{quad\_solve.h}}
+\doxysubsubsection{\texorpdfstring{double\_compare()}{double\_compare()}}
+{\footnotesize\ttfamily int double\+\_\+compare (\begin{DoxyParamCaption}\item[{const double}]{x,  }\item[{const double}]{y }\end{DoxyParamCaption})}
+
+
+
+Compares two double. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em x} & 1st number \\
+\hline
+\mbox{\texttt{ in}}  & {\em y} & 2nd number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if equal else false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{quad__solve_8h_a54ecbb1202db6d0ef81f3285847832d3}\label{quad__solve_8h_a54ecbb1202db6d0ef81f3285847832d3}} 
+\index{quad\_solve.h@{quad\_solve.h}!quad\_solver@{quad\_solver}}
+\index{quad\_solver@{quad\_solver}!quad\_solve.h@{quad\_solve.h}}
+\doxysubsubsection{\texorpdfstring{quad\_solver()}{quad\_solver()}}
+{\footnotesize\ttfamily void quad\+\_\+solver (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_coefficients}{Coefficients}}}]{coeffs,  }\item[{\mbox{\hyperlink{struct_roots}{Roots}} $\ast$const}]{roots }\end{DoxyParamCaption})}
+
+
+
+Solves quad equation. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em roots} & quad equation roots \\
+\hline
+\mbox{\texttt{ in}}  & {\em coeffs} & quad equation coefficients \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
