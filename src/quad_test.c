@@ -31,14 +31,14 @@ int quad_solver_test(const TestQuad test)
 bool is_quad_solved_incorrectly(const Roots roots, const Roots right_roots)
 {
     return !((double_compare(roots.x1, right_roots.x1) && double_compare(roots.x2, right_roots.x2))
-       || (double_compare(roots.x1, right_roots.x2) && double_compare(roots.x2, right_roots.x1)))
-       || roots.amount_of_roots != right_roots.amount_of_roots;
+	       || (double_compare(roots.x1, right_roots.x2) && double_compare(roots.x2, right_roots.x1)))
+           || roots.amount_of_roots != right_roots.amount_of_roots;
 }
 
 bool quad_solver_testing()
 {
     int failed = 0;
-	FILE *fp = fopen("tests.txt", "r");
+	FILE *fp = fopen(TEST_FILE, "r");
 	if (fp != NULL)
 	{
 		while (true)
@@ -46,7 +46,7 @@ bool quad_solver_testing()
 			TestQuad test = {};
 			int amount_of_roots = 0;
 			if (fscanf(fp, "%d %lf %lf %lf %d %lf %lf\n", &test.number_of_test, &test.coeffs.a, &test.coeffs.b,
-					  &test.coeffs.c, &amount_of_roots, &test.right_roots.x1, &test.right_roots.x2) != 7)
+			    &test.coeffs.c, &amount_of_roots, &test.right_roots.x1, &test.right_roots.x2) != 7)
 				break;
 			test.right_roots.amount_of_roots = (NumberOfRoots) amount_of_roots;
 

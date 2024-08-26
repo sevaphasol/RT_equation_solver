@@ -13,6 +13,6 @@ void quad_assert_func(bool statement, const int line, const char *file, const ch
 	if (!statement)
 	{
 		red_print("Assertion failed: string %d, file %s, function %s\n", line, file, function);
-		exit(0);
+		exit(EXIT_FAILURE);
 	}
 }

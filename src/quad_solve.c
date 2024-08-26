@@ -10,17 +10,17 @@
 
 int double_compare(const double x, const double y)
 {
-    quad_assert (isfinite(x));
-    quad_assert (isfinite(y));
+    quad_assert(isfinite(x));
+    quad_assert(isfinite(y));
     return (fabs(x - y) < EPSILON);
 }
 
 void quad_solver(const Coefficients coeffs, Roots * const roots)
 {
-    quad_assert (isfinite(coeffs.a));
-    quad_assert (isfinite(coeffs.b));
-    quad_assert (isfinite(coeffs.c));
-    quad_assert (roots != NULL);
+    quad_assert(isfinite(coeffs.a));
+    quad_assert(isfinite(coeffs.b));
+    quad_assert(isfinite(coeffs.c));
+    quad_assert(roots != NULL);
 
     if (double_compare(coeffs.a, 0))
     {
@@ -57,8 +57,8 @@ void quad_solver(const Coefficients coeffs, Roots * const roots)
         else if (d > 0)
         {
 			roots->amount_of_roots = TWO;
-            roots->x1 = (-coeffs.b + sqrt(d))/(2*coeffs.a);
-            roots->x2 = (-coeffs.b - sqrt(d))/(2*coeffs.a);
+            roots->x1 = (-coeffs.b + sqrt(d)) / (2 * coeffs.a);
+            roots->x2 = (-coeffs.b - sqrt(d)) / (2 * coeffs.a);
         }
     }
 }

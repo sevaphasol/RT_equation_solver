@@ -15,8 +15,8 @@ void flags_input_getopt(int argc, char *argv[], bool *only_test, bool *do_test)
 	{
         int option_index = 0;
 		const struct option long_options[] = {
-			{"help", no_argument, NULL, HELP},
-			{"do_test", no_argument, NULL, DO_TEST},
+			{"help",      no_argument, NULL, HELP},
+			{"do_test",   no_argument, NULL, DO_TEST},
 			{"only_test", no_argument, NULL, ONLY_TEST},
 		};
 		
@@ -46,7 +46,8 @@ void flags_input_getopt(int argc, char *argv[], bool *only_test, bool *do_test)
         }
 	}
 	
-	if (optind < argc) {
+	if (optind < argc) 
+	{
         fprintf(stderr, "elemts of ARGV, not pararmetrs: ");
         while (optind < argc)
             printf("%s ", argv[optind++]);
@@ -78,9 +79,9 @@ void flags_input(int argc, char *argv[], bool *only_test, bool *do_test)
 void flag_help()
 {
     yellow_print("Help information \n"
-				 "--help        show this information\n"
-				 "--only_test   no solving equation, just test\n"
-				 "--do_test turn on testing quadratic equation\n");
+				 "--help      show this information\n"
+				 "--only_test no solving equation, just test\n"
+				 "--do_test   turn on testing quadratic equation\n");
 }
 
 void flag_only_test(bool *only_test)

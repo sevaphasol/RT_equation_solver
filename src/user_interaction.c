@@ -12,7 +12,8 @@
 
 void roots_output(const Roots roots)
 {
-    switch (roots.amount_of_roots){
+    switch (roots.amount_of_roots)
+	{
         case ZERO: 
 			turquoise_print("No roots \n");
             break;

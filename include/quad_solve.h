@@ -11,9 +11,9 @@ enum NumberOfRoots
 {
     NOT_INITIALIZED = -2, ///< equation hasn't been made
     INF             = -1, ///< equation has infinte roots
-    ZERO            =  0,  ///< equation has 0 roots
-    ONE             =  1,  ///< equation has 1 root
-    TWO             =  2,  ///< equation has 2 roots
+    ZERO            =  0, ///< equation has 0 roots
+    ONE             =  1, ///< equation has 1 root
+    TWO             =  2, ///< equation has 2 roots
 };
 
 /// Accuracy of double comparison
@@ -29,8 +29,8 @@ typedef struct Coefficients {
 /// Structure for roots of quad equation
 typedef struct Roots {
     NumberOfRoots amount_of_roots; ///< amount of roots
-    double x1; ///< first root
-    double x2; ///< second root
+    double x1;                     ///< first root
+    double x2;                     ///< second root
 } Roots;
 
 /*!

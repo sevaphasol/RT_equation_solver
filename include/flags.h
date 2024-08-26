@@ -9,9 +9,9 @@
 /// Vals for getopt_long() return 
 enum long_option_vals
 {
-	HELP         = 0,
-	DO_TEST      = 1,
-	ONLY_TEST    = 2,
+	HELP      = 0,
+	DO_TEST   = 1,
+	ONLY_TEST = 2,
 };
 
 /*!

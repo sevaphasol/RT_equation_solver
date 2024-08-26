@@ -24,11 +24,7 @@ void color_print(const char *color_code, const char *str, ...)
 
 void set_color(const char *color_code)
 {
-	int len = strlen(color_code);
-	for (int i = 0; i < len; i++)
-	{
-		putchar(*color_code++);
-	}
+	printf("%s", color_code);
 }
 
 void reset_color()
