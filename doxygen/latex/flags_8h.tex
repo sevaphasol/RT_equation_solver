@@ -1,0 +1,126 @@
+\hypertarget{flags_8h}{}\doxysection{C\+:/\+Users/user/\+Documents/\+Git\+Hub/\+Projects/\+RT\+\_\+equation\+\_\+solver/include/flags.h File Reference}
+\label{flags_8h}\index{C:/Users/user/Documents/GitHub/Projects/RT\_equation\_solver/include/flags.h@{C:/Users/user/Documents/GitHub/Projects/RT\_equation\_solver/include/flags.h}}
+
+
+This file is created for input flags in console.  
+
+
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{flags_8h_a5c7c6e67d64ea0a3e8ee59f2dccbf5ac}\label{flags_8h_a5c7c6e67d64ea0a3e8ee59f2dccbf5ac}} 
+enum \mbox{\hyperlink{flags_8h_a5c7c6e67d64ea0a3e8ee59f2dccbf5ac}{long\+\_\+option\+\_\+vals}} \{ {\bfseries HELP} = 0
+, {\bfseries DO\+\_\+\+TEST} = 1
+, {\bfseries ONLY\+\_\+\+TEST} = 2
+ \}
+\begin{DoxyCompactList}\small\item\em Vals for getopt\+\_\+long() return. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{flags_8h_ad69e2aacd4e23b59e529f78fe271a353}{flags\+\_\+input}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]}, bool $\ast$only\+\_\+test, bool $\ast$do\+\_\+test)
+\begin{DoxyCompactList}\small\item\em Checks input flags in console. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{flags_8h_a62d9d8bb29c72ead5675071a62a5fbc6}{flag\+\_\+help}} ()
+\begin{DoxyCompactList}\small\item\em Print help flag information. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{flags_8h_a2bc403c70c6cfa76dd289e5cd4c685b0}{flag\+\_\+only\+\_\+test}} (bool $\ast$only\+\_\+test)
+\begin{DoxyCompactList}\small\item\em Turn off input data. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{flags_8h_a7ee93ddddf3a1b802bd1b1240cff0b4c}{flag\+\_\+do\+\_\+test}} (bool $\ast$do\+\_\+test)
+\begin{DoxyCompactList}\small\item\em Turn on testing. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{flags_8h_a9dcb308f67af9c02cea634476a599803}{flags\+\_\+input\+\_\+getopt}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]}, bool $\ast$only\+\_\+test, bool $\ast$do\+\_\+test)
+\begin{DoxyCompactList}\small\item\em Checks input flags in console, using getopt. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file is created for input flags in console. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{flags_8h_a7ee93ddddf3a1b802bd1b1240cff0b4c}\label{flags_8h_a7ee93ddddf3a1b802bd1b1240cff0b4c}} 
+\index{flags.h@{flags.h}!flag\_do\_test@{flag\_do\_test}}
+\index{flag\_do\_test@{flag\_do\_test}!flags.h@{flags.h}}
+\doxysubsubsection{\texorpdfstring{flag\_do\_test()}{flag\_do\_test()}}
+{\footnotesize\ttfamily void flag\+\_\+do\+\_\+test (\begin{DoxyParamCaption}\item[{bool $\ast$}]{do\+\_\+test }\end{DoxyParamCaption})}
+
+
+
+Turn on testing. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em do\+\_\+test} & turn on testing if true \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{flags_8h_a62d9d8bb29c72ead5675071a62a5fbc6}\label{flags_8h_a62d9d8bb29c72ead5675071a62a5fbc6}} 
+\index{flags.h@{flags.h}!flag\_help@{flag\_help}}
+\index{flag\_help@{flag\_help}!flags.h@{flags.h}}
+\doxysubsubsection{\texorpdfstring{flag\_help()}{flag\_help()}}
+{\footnotesize\ttfamily void flag\+\_\+help (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Print help flag information. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{flags_8h_a2bc403c70c6cfa76dd289e5cd4c685b0}\label{flags_8h_a2bc403c70c6cfa76dd289e5cd4c685b0}} 
+\index{flags.h@{flags.h}!flag\_only\_test@{flag\_only\_test}}
+\index{flag\_only\_test@{flag\_only\_test}!flags.h@{flags.h}}
+\doxysubsubsection{\texorpdfstring{flag\_only\_test()}{flag\_only\_test()}}
+{\footnotesize\ttfamily void flag\+\_\+only\+\_\+test (\begin{DoxyParamCaption}\item[{bool $\ast$}]{only\+\_\+test }\end{DoxyParamCaption})}
+
+
+
+Turn off input data. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em only\+\_\+test} & no input data, only tests if true \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{flags_8h_ad69e2aacd4e23b59e529f78fe271a353}\label{flags_8h_ad69e2aacd4e23b59e529f78fe271a353}} 
+\index{flags.h@{flags.h}!flags\_input@{flags\_input}}
+\index{flags\_input@{flags\_input}!flags.h@{flags.h}}
+\doxysubsubsection{\texorpdfstring{flags\_input()}{flags\_input()}}
+{\footnotesize\ttfamily void flags\+\_\+input (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]},  }\item[{bool $\ast$}]{only\+\_\+test,  }\item[{bool $\ast$}]{do\+\_\+test }\end{DoxyParamCaption})}
+
+
+
+Checks input flags in console. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em only\+\_\+test} & no input data, only tests if true \\
+\hline
+\mbox{\texttt{ out}}  & {\em do\+\_\+test} & turn on testing if true \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{flags_8h_a9dcb308f67af9c02cea634476a599803}\label{flags_8h_a9dcb308f67af9c02cea634476a599803}} 
+\index{flags.h@{flags.h}!flags\_input\_getopt@{flags\_input\_getopt}}
+\index{flags\_input\_getopt@{flags\_input\_getopt}!flags.h@{flags.h}}
+\doxysubsubsection{\texorpdfstring{flags\_input\_getopt()}{flags\_input\_getopt()}}
+{\footnotesize\ttfamily void flags\+\_\+input\+\_\+getopt (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]},  }\item[{bool $\ast$}]{only\+\_\+test,  }\item[{bool $\ast$}]{do\+\_\+test }\end{DoxyParamCaption})}
+
+
+
+Checks input flags in console, using getopt. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em only\+\_\+test} & no input data, only tests if true \\
+\hline
+\mbox{\texttt{ out}}  & {\em do\+\_\+test} & turn on testing if true \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}

@@ -1,0 +1,76 @@
+\hypertarget{user__interaction_8c}{}\doxysection{C\+:/\+Users/user/\+Documents/\+Git\+Hub/\+Projects/\+RT\+\_\+equation\+\_\+solver/src/user\+\_\+interaction.c File Reference}
+\label{user__interaction_8c}\index{C:/Users/user/Documents/GitHub/Projects/RT\_equation\_solver/src/user\_interaction.c@{C:/Users/user/Documents/GitHub/Projects/RT\_equation\_solver/src/user\_interaction.c}}
+
+
+This file is created for input/output functions.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$TXLib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}colors.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}quad\+\_\+solve.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}user\+\_\+interaction.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}quad\+\_\+assert.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{user__interaction_8c_ac4e4e304d5dc74e2aeb525d25dfa106c}{roots\+\_\+output}} (const \mbox{\hyperlink{struct_roots}{Roots}} roots)
+\begin{DoxyCompactList}\small\item\em Displays quad equation roots. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{user__interaction_8c_af0df226eb8dcd72a8a40eed9c8c31ebb}{coeffs\+\_\+input}} (\mbox{\hyperlink{struct_coefficients}{Coefficients}} $\ast$const coeffs)
+\begin{DoxyCompactList}\small\item\em Receives quad equation coefficients. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{user__interaction_8c_abf0a507d7232114446f1b41ac2c61a73}{clear\+\_\+stdout}} ()
+\begin{DoxyCompactList}\small\item\em Clears stdout for scanf. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file is created for input/output functions. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{user__interaction_8c_abf0a507d7232114446f1b41ac2c61a73}\label{user__interaction_8c_abf0a507d7232114446f1b41ac2c61a73}} 
+\index{user\_interaction.c@{user\_interaction.c}!clear\_stdout@{clear\_stdout}}
+\index{clear\_stdout@{clear\_stdout}!user\_interaction.c@{user\_interaction.c}}
+\doxysubsubsection{\texorpdfstring{clear\_stdout()}{clear\_stdout()}}
+{\footnotesize\ttfamily void clear\+\_\+stdout (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Clears stdout for scanf. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{user__interaction_8c_af0df226eb8dcd72a8a40eed9c8c31ebb}\label{user__interaction_8c_af0df226eb8dcd72a8a40eed9c8c31ebb}} 
+\index{user\_interaction.c@{user\_interaction.c}!coeffs\_input@{coeffs\_input}}
+\index{coeffs\_input@{coeffs\_input}!user\_interaction.c@{user\_interaction.c}}
+\doxysubsubsection{\texorpdfstring{coeffs\_input()}{coeffs\_input()}}
+{\footnotesize\ttfamily void coeffs\+\_\+input (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_coefficients}{Coefficients}} $\ast$const}]{coeffs }\end{DoxyParamCaption})}
+
+
+
+Receives quad equation coefficients. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em coeffs} & quad equation coeffs \textbackslash{} return void \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{user__interaction_8c_ac4e4e304d5dc74e2aeb525d25dfa106c}\label{user__interaction_8c_ac4e4e304d5dc74e2aeb525d25dfa106c}} 
+\index{user\_interaction.c@{user\_interaction.c}!roots\_output@{roots\_output}}
+\index{roots\_output@{roots\_output}!user\_interaction.c@{user\_interaction.c}}
+\doxysubsubsection{\texorpdfstring{roots\_output()}{roots\_output()}}
+{\footnotesize\ttfamily void roots\+\_\+output (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_roots}{Roots}}}]{roots }\end{DoxyParamCaption})}
+
+
+
+Displays quad equation roots. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em roots} & quad equation roots \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
