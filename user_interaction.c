@@ -38,7 +38,7 @@ void coeffs_input(Coefficients * const coeffs)
     {
         purple_print("Enter coefficients a, b, c: \n");
         int accepted_values = scanf("%lf %lf %lf", &(coeffs->a), &(coeffs->b), &(coeffs->c));
-        if (accepted_values != 3)
+        if (accepted_values != 3 || getchar() != '\n')
             clear_stdout();
         else
             break;
