@@ -6,12 +6,13 @@
 #include <stdio.h>
 #include <TXLib.h>
 #include "quad_assert.h"
+#include "colors.h"
 
-void quad_assert_func(bool statement, int line, const char *file, const char *function)
+void quad_assert_func(bool statement, const int line, const char *file, const char *function)
 {
 	if (!statement)
 	{
-		printf("Assertion failed: string %d, file %s, function %s\n", line, file, function);
+		red_print("Assertion failed: string %d, file %s, function %s\n", line, file, function);
 		exit(0);
 	}
 }

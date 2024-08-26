@@ -13,6 +13,6 @@
 \param[in] statement statement, if false exit programm
 \return void
 */
-void quad_assert_func(bool statement, int line, const char *file, const char *function);
+void quad_assert_func(bool statement, const int line, const char *file, const char *function);
 
 #endif // QUAD_ASSERT_H__
