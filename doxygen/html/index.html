@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Quad solver project: Main Page</title>
+<title>Quad solver project: Quadratic Equation Solver</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -13,6 +13,7 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -60,11 +61,36 @@ $(function() {
 </iframe>
 </div>
 
-<div class="header">
+<div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">Quad solver project Documentation</div>  </div>
+<div class="title">Quadratic Equation Solver </div>  </div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><p><a class="anchor" id="md_mainpage"></a></p>
+<h2><a class="anchor" id="autotoc_md0"></a>
+How to use</h2>
+<p>Run via console Enter <code>compile.bat</code> and <code>quad_solver.exe</code> </p><div class="fragment"><div class="line">compile.bat</div>
+<div class="line">build\quad_solver.exe</div>
+</div><!-- fragment --><p>If you want, you can add flags to the line above, which will be discussed below. Enter three numbers, separated by spaces. These three numbers are the coefficients of the quadratic equation, starting with the highest coefficient. Get the correct answer and realize that real men solve the square not by Vieta, but by <code>RT_equation_solver</code></p>
+<h2><a class="anchor" id="autotoc_md1"></a>
+Flags</h2>
+<p><code>--help</code> or <code>-h</code> prints information how to use falgs. Example of displaying information in the console</p>
+<p><img src="https://github.com/user-attachments/assets/34d9fbbb-5b30-4fe9-b353-edf52ee5dc8f" alt="--help" width="530" class="inline"/></p>
+<p>&ndash;do_test or -d turns on testing of the program with results output. An example of displaying successful test execution in the console</p>
+<p><img src="https://github.com/user-attachments/assets/5d518d6f-65b2-441d-8a89-f8f7d7ad39af" alt="success" width="530" class="inline"/></p>
+<p>An example of displaying failed tests in the console</p>
+<p><img src="https://github.com/user-attachments/assets/f5d2cffc-5dd3-4743-abe8-f189aba206ec" alt="error" width="530" class="inline"/></p>
+<p>&ndash;only_test or -o disables solving equations with input coefficients, disables input of coefficients An example of how this flag works</p>
+<p><img src="https://github.com/user-attachments/assets/d6446f1b-3444-400b-a3c7-73a2ff0a66f5" alt="error" width="530" class="inline"/></p>
+<h2><a class="anchor" id="autotoc_md2"></a>
+Features</h2>
+<ul>
+<li>Custom assert (quad_assert)</li>
+<li>Tests of solving the equation</li>
+<li>Flags</li>
+<li>Stylish doxygen page </li>
+</ul>
+</div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

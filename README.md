@@ -1,4 +1,4 @@
-# RT_equation_solver
+# Quadratic Equation Solver
 -----------
 
 ### How to use
@@ -38,3 +38,4 @@ An example of how this flag works
 - Custom assert (quad_assert)
 - Tests of solving the equation
 - Flags
+- Stylish doxygen page
