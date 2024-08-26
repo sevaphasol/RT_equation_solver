@@ -6,7 +6,7 @@ Run via console
 Enter ```compile.bat``` and ```quad_solver.exe```
 ```shell
 compile.bat
-quad_solver.exe
+build\quad_solver.exe
 ```
 
 If you want, you can add flags to the line above, which will be discussed below.
