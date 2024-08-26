@@ -11,6 +11,7 @@ void quad_assert(bool statement, int line, const char *file)
 {
 	if (!statement)
 	{
-		printf("%d %s\n", line, file);
+		printf("Assertion failed: string %d, file %s\n", line, file);
+		exit(0);
 	}
 }
