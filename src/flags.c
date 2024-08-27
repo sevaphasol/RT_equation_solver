@@ -9,22 +9,23 @@
 #include "colors.h"
 #include "flags.h"
 
-void flags_input_getopt(int argc, char *argv[], bool *only_test, bool *do_test)
+void flags_input_getopt(const int argc, char * argv[], bool *only_test, bool *do_test)
 {
 	while (true)
 	{
         int option_index = 0;
-		const struct option long_options[] = {
+		const struct option long_options[] =
+		{
 			{"help",      no_argument, NULL, HELP},
 			{"do_test",   no_argument, NULL, DO_TEST},
 			{"only_test", no_argument, NULL, ONLY_TEST},
 		};
-		
+
 		int c = getopt_long(argc, argv, "hdo", long_options, &option_index);
-		
+
 		if (c == -1)
 			break;
-		
+
 		switch (c)
 		{
 			case HELP:
@@ -45,8 +46,8 @@ void flags_input_getopt(int argc, char *argv[], bool *only_test, bool *do_test)
 				red_print("Error\n");
         }
 	}
-	
-	if (optind < argc) 
+
+	if (optind < argc)
 	{
         fprintf(stderr, "elemts of ARGV, not pararmetrs: ");
         while (optind < argc)
@@ -79,9 +80,9 @@ void flags_input(int argc, char *argv[], bool *only_test, bool *do_test)
 void flag_help()
 {
     yellow_print("Help information \n"
-				 "--help      show this information\n"
-				 "--only_test no solving equation, just test\n"
-				 "--do_test   turn on testing quadratic equation\n");
+				 "-h [--help]        show this information\n"
+				 "-o [--only_test]   no solving equation, just test\n"
+				 "-d [--do_test]     turn on testing quadratic equation\n");
 }
 
 void flag_only_test(bool *only_test)

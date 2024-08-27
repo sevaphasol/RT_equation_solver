@@ -9,10 +9,10 @@
 #define TEST_FILE "tests.txt"
 
 /// Structure for testing programm
-typedef struct TestQuad { 
-	int number_of_test;  ///< number of test 
+typedef struct TestQuad {
+	int number_of_test;  ///< number of test
 	Coefficients coeffs; ///< coefficients of equation
-	Roots right_roots;   ///< right roots of equation 
+	Roots right_roots;   ///< right roots of equation
 } TestQuad;
 
 /*!

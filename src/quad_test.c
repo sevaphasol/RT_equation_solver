@@ -23,7 +23,7 @@ int quad_solver_test(const TestQuad test)
                   roots.amount_of_roots, roots.x1, roots.x2);
         return -1;
     }
-	else 
+	else
 		green_print("Test %d successfull\n", test.number_of_test);
 		return 0;
 }
@@ -58,11 +58,11 @@ bool quad_solver_testing()
 		else
 			red_print("Testing failed\n");
 
-		return !failed;		
+		return !failed;
 	}
-	else 
+	else
 	{
-		printf("File hasn't been read\n");
+		fprintf(stderr, "File %s hasn't been read\n". TEST_FILE);
 	}
 	return -1;
 }

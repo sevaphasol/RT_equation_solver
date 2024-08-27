@@ -8,7 +8,7 @@
 #include "quad_assert.h"
 #include "colors.h"
 
-void quad_assert_func(bool statement, const int line, const char *file, const char *function)
+void quad_assert_func(const bool statement, const int line, const char *file, const char *function)
 {
 	if (!statement)
 	{

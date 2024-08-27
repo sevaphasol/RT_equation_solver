@@ -43,7 +43,7 @@ void quad_solver(const Coefficients coeffs, Roots * const roots)
     }
     else
     {
-        double d = coeffs.b*coeffs.b - 4*coeffs.a*coeffs.c;
+        const double d = coeffs.b*coeffs.b - 4*coeffs.a*coeffs.c;
 
         if (double_compare(d, 0))
         {
