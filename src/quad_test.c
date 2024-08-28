@@ -62,7 +62,7 @@ bool quad_solver_testing()
 	}
 	else
 	{
-		fprintf(stderr, "File %s hasn't been read\n". TEST_FILE);
+		fprintf(stderr, "File %s hasn't been read\n", TEST_FILE);
 	}
 	return -1;
 }
