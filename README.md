@@ -3,9 +3,10 @@
 
 ### How to use
 Run via console
-Enter ```compile.bat``` and ```quad_solver.exe```
+Enter ```compile.bat``` or ```make``` and ```build\quad_solver.exe```
+
 ```shell
-compile.bat
+make
 build\quad_solver.exe
 ```
 

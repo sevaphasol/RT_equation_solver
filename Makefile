@@ -18,10 +18,16 @@ OBJECT_FILES = $(subst $(SOURCES_DIR), $(OBJECTS_DIR), $(SOURCE_FILES:.c=.o))
 
 all: $(EXECUTABLE_PATH)
 
-$(EXECUTABLE_PATH): $(OBJECT_FILES)
-	$(CC) $(LDFLAGS) $^ -o $@
+$(BUILD_DIR):
+	mkdir -p $(BUILD_DIR)
 
-%.o: %.c
+$(OBJECTS_DIR):
+	mkdir -p $(OBJECTS_DIR)
+
+$(EXECUTABLE_PATH): $(OBJECT_FILES) $(BUILD_DIR)
+	$(CC) $(LDFLAGS) $(OBJECT_FILES) -o $@
+
+$(OBJECTS_DIR)/%.o: $(SOURCES_DIR)/%.c $(OBJECTS_DIR)
 	$(CC) -c $(CFLAGS) $< -o $@
 
 clean:

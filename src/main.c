@@ -16,9 +16,9 @@ int main(int argc, char *argv[])
     Roots roots = {NOT_INITIALIZED, 0, 0};
     bool only_test = false;
     bool do_test = false;
-	
+
 	flags_input_getopt(argc, argv, &only_test, &do_test);
-	
+
     if (!only_test)
     {
         coeffs_input(&coeffs);
